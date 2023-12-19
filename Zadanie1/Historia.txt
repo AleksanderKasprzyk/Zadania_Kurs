@@ -1,0 +1,130 @@
+Piosenka.txt
+----------------------------------------------
+commit b42ddbd597d5c560cfbce5f7d1314399c1b5fdc0
+commit b42ddbd597d5c560cfbce5f7d1314399c1b5fdc0
+Author: Aleksander Kasprzyk <apropolos@gmail.com>
+Date:   Wed Aug 2 20:47:04 2023 +0200
+
+    Stworzylem dla pozostalych pliki i zaznaczylem w glownym pliku
+
+commit 7da24fc3e6fb65028c912696badc61941a6e3574
+Author: Aleksander Kasprzyk <apropolos@gmail.com>
+Date:   Wed Aug 2 20:38:23 2023 +0200
+
+    Edycja tekstu i przeniesienie refrenu do innego pliku
+
+
+Zwrotka-Pierwsza.txt
+-----------------------------------------------
+git log -p Zwrotka-Pierwsza.txt          
+commit bb03aa5fbeb267d8124771a354f8d9cc1db2d981         
+Author: Aleksander Kasprzyk <apropolos@gmail.com>       
+Date:   Wed Aug 2 20:33:08 2023 +0200                   
+                                                        
+    Pierwsza zwrotka                                    
+                                                        
+diff --git a/Zwrotka-Pierwsza.txt b/Zwrotka-Pierwsza.txt
+new file mode 100644                                    
+index 0000000..4f3e3be                                  
+--- /dev/null
++++ b/Zwrotka-Pierwsza.txt
+
+
+Zwrotka-Druga.txt
+--------------------------------------------------------
+commit b42ddbd597d5c560cfbce5f7d1314399c1b5fdc0                   
+Author: Aleksander Kasprzyk <apropolos@gmail.com>                 
+Date:   Wed Aug 2 20:47:04 2023 +0200                             
+                                                                  
+    Stworzylem dla pozostalych pliki i zaznaczylem w glownym pliku
+                                                                  
+diff --git a/Druga-Zwrotka.txt b/Druga-Zwrotka.txt                
+new file mode 100644                                              
+index 0000000..c573eb6                                            
+--- /dev/null
++++ b/Druga-Zwrotka.txt
+
+Trzecia-Zwrotka.txt
+-----------------------------------------------------------
+ git log -p Trzecia-Zwrotka.txt
+commit b42ddbd597d5c560cfbce5f7d1314399c1b5fdc0                   
+Author: Aleksander Kasprzyk <apropolos@gmail.com>                 
+Date:   Wed Aug 2 20:47:04 2023 +0200                             
+                                                                  
+    Stworzylem dla pozostalych pliki i zaznaczylem w glownym pliku
+                                                                  
+diff --git a/Trzecia-Zwrotka.txt b/Trzecia-Zwrotka.txt            
+new file mode 100644                                              
+index 0000000..80749ba                                            
+--- /dev/null
++++ b/Trzecia-Zwrotka.txt
+
+Refren-Pierwszy.txt
+---------------------------------------------------------
+git log -p Refren-Pierwszy.txt
+commit 7da24fc3e6fb65028c912696badc61941a6e3574          
+Author: Aleksander Kasprzyk <apropolos@gmail.com>        
+Date:   Wed Aug 2 20:38:23 2023 +0200                    
+                                                         
+    Edycja tekstu i przeniesienie refrenu do innego pliku
+                                                         
+diff --git a/Refren-Pierwszy.txt b/Refren-Pierwszy.txt   
+new file mode 100644                                     
+index 0000000..a1139f7                                   
+--- /dev/null
++++ b/Refren-Pierwszy.txt
+
+
+
+Pozostałe zwrotki
+-----------------------------------------------------------------
+git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Piosenka.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .idea/
+        Druga-Zwrotka.txt
+        Drugi-Refren.txt
+        Trzeci-Refren.txt
+        Trzecia-Zwrotka.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+Dla punktu Szostego
+-------------------------------------------------------------
+ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    Drugi-Refren.txt -> PunktSzostyZadania.txt
+        deleted:    Trzeci-Refren.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .idea/
+
+PunktSzostyZadania.txt
+-------------------------------------------------------------------
+git log -p PunktSzostyZadania.txt
+commit 0ee8542f1017bb8727ab4cdb9cc27f24b409b5d2 (HEAD -> master, origin/master)
+Author: Aleksander Kasprzyk <apropolos@gmail.com>                              
+Date:   Wed Aug 2 21:11:32 2023 +0200                                          
+
+    Punkt szosty zadania
+
+diff --git a/PunktSzostyZadania.txt b/PunktSzostyZadania.txt
+new file mode 100644
+index 0000000..7349459
+--- /dev/null
++++ b/PunktSzostyZadania.txt
+

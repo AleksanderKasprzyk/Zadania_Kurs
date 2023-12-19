@@ -1,0 +1,14 @@
+[
+    {
+        "balance": 200.0,
+        "operation_history": "Added 100.0"
+    },
+    {
+        "balance": 100.0,
+        "operation_history": "Added 100.0"
+    },
+    {
+        "balance": 1000.0,
+        "operation_history": "Added 1000.0"
+    }
+]

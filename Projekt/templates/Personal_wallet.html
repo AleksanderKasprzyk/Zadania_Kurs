@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NBP data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/' else '' }}" href="{{ url_for('home_page') }}">Home page</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/personal_wallet' else '' }}" href="{{ url_for('bank_wallet') }}">Personal wallet</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/account_balance_operations' else '' }}" href="{{ url_for('account') }}">Your balance</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/nbp_data' else '' }}" href="{{ url_for('nbp_data') }}">NBP data</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/history' else '' }}" href="{{ url_for('history_page') }}">Purchases history</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '' else '' }}" href="http://api.nbp.pl/">API NBP</a>
+              </li>
+              {% if current_user.is_authenticated %}
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/register_user' else '' }}" href="{{ url_for('register') }}" style="display: none;">Register user</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/login_user' else '' }}" href="{{ url_for('login') }}" style="display: none;">Login user</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/logout_user' else '' }}" href="{{ url_for('logout') }}">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/register_user' else '' }}" href="{{ url_for('register') }}">Register user</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/login_user' else '' }}" href="{{ url_for('login') }}">Login user</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link {{ 'active text-decoration-underline' if active_page == '/logout_user' else '' }}" href="{{ url_for('logout') }}" style="display: none;">Logout</a>
+              </li>
+              {% endif %}
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% with messages = get_flashed_messages() %}  {# Kod pozwala na wyświetlenie wiadomości z funkcji flash #}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+
+                    {{ message }}
+
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h1>Your account balance: {{ account_balance }} in PLN</h1>
+
+    <div class="container w-50">
+    <div class="d-flex flex-column">
+    <div class="mb-3">
+    <label class="form-label" for="operation_buy">Buy operations:</label><button type="submit" class="btn btn-primary" name="operation_buy" value="operation_buy" onclick="showBuyField()">Buy</button>
+    </div>
+    </div>
+    </div>
+
+    <div class="container w-50">
+    <div class="d-flex flex-column">
+    <div id="buyCurrencyField" style="display: none;">
+        <form method="POST" action="/personal_wallet">
+    <div class="mb-3">
+    <label class="form-label" for="currency_code">Input currency code (three letters):</label><input type="text" class="form-control" name="currency_code" id="currency_code" required><br>
+    <label class="form-label" for="type_table">Input type of table (A, B or C):</label><input type="text" class="form-control" name="type_table" id="type_table" required><br>
+    <label class="form-label" for="buy_amount"></label>Input amount: <input type="number" class="form-control" name="buy_amount" id="buy_amount" required><br>
+    <button type="submit" class="btn btn-primary" id="operation_buy" name="operation_buy" value="operation_buy">Buy currency</button>
+    </div>
+        </form>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        function showBuyField() {var field = document.getElementById('buyCurrencyField');
+            if (field.style.display === 'none') { field.style.display = 'block';} else { field.style.display = 'none'; } }
+    </script>
+
+    <div class="container w-50">
+    <div class="d-flex flex-column">
+    <div class="mb-3">
+    <label for="operation_sell">Sell operations:</label>
+    <button type="submit" class="btn btn-primary" id="operation_sell" onclick="showSellField()">Sell</button>
+    </div>
+    </div>
+    </div>
+
+    <div class="container w-50">
+    <div class="d-flex flex-column">
+    <div id="sellCurrencyField" style="display: none;">
+        <form method="POST" action="/personal_wallet">
+    <div class="mb-3">
+    <label class="form-label" for="sell_currency_code">Input currency code (three letters):</label><input type="text" class="form-control" name="sell_currency_code" id="sell_currency_code" required><br>
+    <label class="form-label" for="sell_type_table">Input type of table (A, B or C):</label><input type="text" class="form-control" name="sell_type_table" id="sell_type_table" required><br>
+    <label class="form-label" for="sale_amount"></label>Input amount: <input type="number" class="form-control" name="sale_amount" id="sale_amount" required><br>
+    </div>
+    <button type="submit" class="btn btn-primary" name="operation_sell" value="operation_sell">Sell currency</button>
+        </form>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        function showSellField() {var field = document.getElementById('sellCurrencyField');
+            if (field.style.display === 'none') { field.style.display = 'block';} else { field.style.display = 'none'; } }
+    </script>
+
+</body>
+</html>
