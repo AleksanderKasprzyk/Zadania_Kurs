@@ -1,0 +1,11 @@
+The calculation time of the silnia for value 1 is 0.000000 seconds.
+The calculation time of the silnia for value 9 is 0.000000 seconds.
+The calculation time of the silnia for value 27 is 0.000000 seconds.
+The calculation time of the silnia for value 88 is 0.000000 seconds.
+The calculation time of the silnia for value 175 is 0.001003 seconds.
+The calculation time of the silnia for value 299 is 0.000560 seconds.
+The calculation time of the silnia for value 512 is 0.000000 seconds.
+The calculation time of the silnia for value 1000 is 0.003983 seconds.
+The calculation time of the silnia for value 1024 is 0.000000 seconds.
+The calculation time of the silnia for value 1200 is 0.002002 seconds.
+The calculation time of the silnia for value 1500 is 0.005022 seconds.

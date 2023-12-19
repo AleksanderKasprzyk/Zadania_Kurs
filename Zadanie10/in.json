@@ -1,0 +1,26 @@
+[
+    {
+        "name": "drzwi",
+        "attribute1": 3,
+        "attribute2": 7,
+        "attribute3": 0
+    },
+    {
+        "name": "kanapka",
+        "attribute1": 12,
+        "attribute2": 5,
+        "attribute3": 1
+    },
+    {
+        "name": "pedzel",
+        "attribute1": 22,
+        "attribute2": 34,
+        "attribute3": 5
+    },
+    {
+        "name": "plakat",
+        "color": "czerwony",
+        "attribute2": 8,
+        "attribute3": "kij"
+    }
+]
